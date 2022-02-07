@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="larricane">
+
+
+    <meta name="subtitle" content="larricane">
+
+
+    <meta name="description" content="still on the way">
+
+
+    <meta name="keywords" content="web3">
+
+
+<title>一些基本概念 | larricane&#39;s blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">larricane&#39;s blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/categories">Categories</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">larricane&#39;s blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/categories">Categories</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">一些基本概念</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">larricane</a>
+                    
+
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/way-to-web3/">way to web3</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <blockquote>
+<p>本文由larricane翻译自<a target="_blank" rel="noopener" href="https://trufflesuite.com/guides/ethereum-overview/">这篇</a>文章，有节略。</p>
+</blockquote>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h2 id="区块链"><a href="#区块链" class="headerlink" title="区块链"></a>区块链</h2><p>区块链是一个共享的由<strong>账本</strong>和<strong>交易</strong>组成的数据库。跟普通的银行类似 ，简单区块链（Bitcoin）记录货币（加密货币）的流动踪迹。跟中心化的银行不同，任何人都有账本的副本，并且可以验证彼此的账户。每个相连的具有账本的副本的设备叫做节点。</p>
+<p>区块链通过以下方式解决了中心化数据库的信任问题：</p>
+<ul>
+<li><p><strong>完全去中心化</strong> </p>
+<p>数据读写都是完全去中心化且安全的，单独一个人或者组织不能控制区块链。</p>
+</li>
+<li><p><strong>极致容错</strong></p>
+<p>容错衡量系统处理数据错误的能力。容错机制本生不是区块链独有的，区块链通过以下方法实现<strong>极致容错</strong>：共享数据库里所有账户验证其更改。</p>
+</li>
+<li><p><strong>独立验证</strong></p>
+<p>任何人都可以验证交易而无需第三方组织（如支付宝），也叫去「<strong>去中介化</strong>」。</p>
+</li>
+</ul>
+<h3 id="工作原理："><a href="#工作原理：" class="headerlink" title="工作原理："></a>工作原理：</h3><p>区块链网络上账户之间的互动叫做「<strong>交易</strong>」。货币交易，比如，发送 <strong>ether（以太坊的加密货币）</strong>；数据传输，比如，一则评论或者用户名。许多交易打包起来叫做「<strong>区块</strong>」。</p>
+<p>每个账户都有独一无二的签名，这让所有人都知道一笔交易由谁发起。在公链上，任何人可以读写数据。读数据是免费的，但写数据不是。这笔费用叫「<strong>gas</strong>」，以 ether 为计量单位， 有助于减少垃圾信息与交易，来让区块链变得更安全。</p>
+<p><strong>挖矿</strong></p>
+<p>区块链网络上任何节点都可以通过参与挖矿来保证网络的安全性。选择成为矿工的节点，竞争解决保护块内容的数学问题。</p>
+<p>因为挖矿需要算力（更别说电费），矿工可以得到补偿。计算比赛的赢家可以得到一些加密货币作为奖励，这激励这些节点努力工作来确保网络的安全性，并防止太多算力集中在一个矿工手中。</p>
+<p><strong>哈希</strong></p>
+<p>当一个区块被（一个矿工）开采出来后，其他矿工收到通知，开始验证并将新的区块添加到他们自己的区块链副本上。这个过程由 <strong>cryptographic hashing</strong>（或者「<strong>哈希</strong>」）完成。哈希是一种单向过程，它接收收据并返回一个固定长度的表示该输入数据的字符串。</p>
+<p>不能由源数据的哈希反推它本身，相同的数据会产生相同的哈希。由此，比较未经验证数据以及源数据的哈希，如果相等，那么数据就验证了。</p>
+<p>一旦过半数的矿工验证了新的区块，网络就「<strong>达成共识</strong>」，新区快成为区块链永久历史的一部分。现在所有节点都可以下载数据，并确保其有效性。</p>
+<p>整个过程如图：</p>
+<div style="display:flex;"width=100%;>
+<div style='width: 33.3%;display:flex;flex-direction: column;align-items:center;'>
+    <img src="https://trufflesuite.com/img/tutorials/ethereum-overview/chain-step1.png" >
+    <p style='margin: 65px auto 0;width=100%'>
+      1.未验证交易
+    </p>
+</div>
+<div style='width: 33.3%;display:flex;flex-direction: column;align-items:center;'>
+    <img style="height:30%,width:30%;margin-left:50px"src="https://trufflesuite.com/img/tutorials/ethereum-overview/chain-step2.png" >
+    <p style='margin: 35px auto 0;'>
+      2.交易打包
+    </p>
+</div>
+<div style='width: 33.3%;display:flex;flex-direction: column;align-items:center;'>
+    <img style="height：60%;width:60%"src="https://trufflesuite.com/img/tutorials/ethereum-overview/chain-step3.png" >
+    <p style='margin: 60px auto 0;width=100%'>
+      3.算力竞争
+    </p>
+</div></div>
+<div>
+<div style="display:flex;width=100%;margin-top: 50px">
+<div style='width: 30%;display:flex;flex-direction: column;align-items:center;'>
+    <img style="width:50%;height:50%"src="https://trufflesuite.com/img/tutorials/ethereum-overview/chain-step4.png" >
+    <p style='margin: 30px auto 0;width=100%'>
+      4.挖矿成功
+    </p>
+</div> 
+<div style='width: 60%;display:flex;flex-direction: column;align-items:center;'>
+    <img style="width:50%;"src="https://trufflesuite.com/img/tutorials/ethereum-overview/chain-step5.png" >
+    <p style='margin: 30px 0 0;width=100%'>
+      5.交易验证成功
+    </p>
+</div>    
+</div>
+
+<h3 id="以太坊"><a href="#以太坊" class="headerlink" title="以太坊"></a>以太坊</h3><p><strong>以太坊是允许你在其可信环境上运行程序的区块链</strong>。跟只允许管理加密货币的比特币区块链不一样。</p>
+<p>为此，以太坊有一个虚拟机，叫做 Ethereum Virtual Machine（EVM）。EVM允许代码在以太坊区块链上验证和执行，提供保证担保它会在每台机器上会以相同的方式运行。这段代码包含在「<strong>智能合约</strong>」中。</p>
+<p>以太坊不仅跟踪每个账户的余额，它还在链上维护EVM的状态。所有节点都处理智能合约以验证智能合约以及其输出的完整性。</p>
+<h3 id="智能合约"><a href="#智能合约" class="headerlink" title="智能合约"></a>智能合约</h3><p>「<strong>智能合约</strong>」<strong>是运行在EVM上的代码</strong>。「<strong>智能合约</strong>」可以接收 ether、数据或两者的结合。然后，按照编入合约的逻辑，它可以将 ether 分发到其他账户甚至其他智能合约。</p>
+<p>如图（只是范例，不要当真），Alice 想要雇佣 Bob 来为她建造一个露台，他们使用一个托管合约（在满足条件之前暂时存钱的地方）在达成交易之前保存 ether。 Bob 和 Alice 各自存入1 ETH 到该合约中，如果交易达成（Alice 满足Bob的工作），Bob 将获得 Alice 存入的1 ETH 和自己抵押的1 ETH；如果交易未达成（Bob 没造好或者造得很差），Bob 将获得 Alice 存入的1 ETH， 他抵押的1 ETH 将释放给Alice 作为补偿。</p>
+<div style="display:flex;width=100%">
+   <div style="width:33%">
+     <img src="https://trufflesuite.com/img/tutorials/ethereum-overview/smart-contract-step1.png">
+   </div>
+   <div style="width:33%">
+     <img src="https://trufflesuite.com/img/tutorials/ethereum-overview/smart-contract-step2.png">
+   </div>
+   <div style="width:33%">
+     <img src="https://trufflesuite.com/img/tutorials/ethereum-overview/smart-contract-step3.png">
+   </div>
+</div>
+
+<p><strong>智能合约用一种叫 Solidity的语言编写</strong> 。<a target="_blank" rel="noopener" href="https://solidity.readthedocs.io/">Solidity</a> 是一中静态类型语言，它支持继承、库、和复杂的用户定义类型，等等。Solidity 语法跟 JavaScript 类似。</p>
+<h3 id="以太坊网络"><a href="#以太坊网络" class="headerlink" title="以太坊网络"></a>以太坊网络</h3><p>到目前为止，我们一直在描述主要的以太坊公共区块链（或「<strong>主网</strong>」）。在主网上，链上数据，包括账户余额和交易都是公开的，任何人可以创建一个节点并开始验证交易。该网络上的以太币具有市场价值，可以兑换成其他加密货币或美元等法定货币。</p>
+<p><strong>本地测试网</strong></p>
+<p>可以在本地模拟以太链进行开发，本地测试网络会立即处理交易，并且可以根据需要分配 Ether。在此选择 <a target="_blank" rel="noopener" href="https://trufflesuite.com/ganache">Ganache</a>。</p>
+<p><strong>公共测试网</strong></p>
+<p>开发者使用公共测试网络（或测试网）在最后部署到以太坊主网以前测试以太坊应用。在测试网上的 Ether 仅用于测试，没有真实价值。</p>
+<p>以下是三个被广泛应用的公共测试网：</p>
+<ul>
+<li><strong>Ropsten</strong>：官方的测试网，由<a target="_blank" rel="noopener" href="https://www.ethereum.org/foundation">以太坊基金会</a>创建。在功能上其与主网类似。</li>
+<li><strong>Kovan</strong>： 一个使用「<strong>proof -of-authority</strong>」作为共识方法的网络，其交易由选中的成员验证，其出块时间仅有4s。该测试网上的 Ether 同样是受控的以减少垃圾信息。</li>
+<li><strong>Rinkeby</strong> ：一个同样使用 proof-of-authority作为共识机制, 由以太坊基金会创建的测试网。</li>
+</ul>
+<h3 id="去中心化应用程序（dapps）"><a href="#去中心化应用程序（dapps）" class="headerlink" title="去中心化应用程序（dapps）"></a>去中心化应用程序（dapps）</h3><p>使用智能合约进行处理和&#x2F;或数据存储的应用程序称为「<strong>去中心化应用程序</strong>」或「<strong>dapps</strong>」。这些 dapp 的用户界面由熟悉的语言组成，例如 HTML、CSS 和 JavaScript。应用程序本身可以托管在传统的 Web 服务器上，也可以托管在分散的文件服务上，例如 <a target="_blank" rel="noopener" href="https://swarm-gateways.net/">Swarm</a> 或 <a target="_blank" rel="noopener" href="https://ipfs.io/">IPFS</a>。</p>
+<p>鉴于以太坊区块链的优势，dapp 可以成为许多行业的解决方案，包括但不限于：</p>
+<ul>
+<li>记录保存</li>
+<li>金融</li>
+<li>供应链</li>
+<li>房地产</li>
+<li>市场</li>
+</ul>
+<p>现在开始学习使用 truffle 进行 dapp 开发。</p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© larricane | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
